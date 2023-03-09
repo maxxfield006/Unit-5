@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6136721371395894415}
   - component: {fileID: 6159176765661729939}
   - component: {fileID: 6159176765661729936}
+  - component: {fileID: 4198462894523053711}
   m_Layer: 0
   m_Name: Bad1
   m_TagString: Untagged
@@ -109,3 +110,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df98ef2d1bb4f1241853cbc1f90462d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+--- !u!64 &4198462894523053711
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160911397126869143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 170db210605ea844695dbbd5c2429940, type: 3}
