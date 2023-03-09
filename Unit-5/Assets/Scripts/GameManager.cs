@@ -5,19 +5,25 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
     int score;
 
-    
+    TossObjects tOScript;
 
     void Start()
     {
         score = 0;
+
+        gameOverText.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (tOScript.gameOver)
+        {
+            gameOverText.enabled = true;
+        }
     }
     
 
@@ -26,4 +32,5 @@ public class GameManager : MonoBehaviour
         score += scoreToUpdate;
         scoreText.text = "Score: " + score;
     }
+    
 }

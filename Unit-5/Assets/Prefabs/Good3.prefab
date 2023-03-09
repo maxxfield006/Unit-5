@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4322162521245500889}
   m_Layer: 0
   m_Name: Good3
-  m_TagString: Untagged
+  m_TagString: good
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df98ef2d1bb4f1241853cbc1f90462d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  gameOver: 0
 --- !u!64 &4322162521245500889
 MeshCollider:
   m_ObjectHideFlags: 0

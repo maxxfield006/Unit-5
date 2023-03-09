@@ -8,9 +8,12 @@ public class SpawnManager : MonoBehaviour
 
     float xRange = 5;
 
+    TossObjects tossObjectsScript;
     void Start()
     {
-        InvokeRepeating("spawnObjects", 5f, 3f);
+        InvokeRepeating("spawnObjects", 3f, 3f);
+        
+        
     }
 
     // Update is called once per frame
