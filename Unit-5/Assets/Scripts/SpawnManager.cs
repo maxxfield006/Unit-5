@@ -5,27 +5,30 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] objects;
+    playerLives playerLives;
 
-    float xRange = 5;
-
-    TossObjects tossObjectsScript;
+    // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("spawnObjects", 3f, 3f);
-        
+        playerLives = GameObject.Find("lives").GetComponent<playerLives>();
+        InvokeRepeating("spawnObjects", 2f, 2f);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerLives.lives < 1)
+        {
+            CancelInvoke("spawnObjects");
+            Debug.Log("STOP SPAWNING");
+        }
     }
+
     void spawnObjects()
     {
-        int randomRange = Random.Range(-5, 5);
         int randomObject = Random.Range(0, 3);
-
-        Instantiate(objects[randomObject], new Vector3(randomRange, -3, 0), transform.rotation);
+        Vector3 randomRange = new Vector3(Random.Range(-5, 5), -5 , 0);
+        Instantiate(objects[randomObject] ,randomRange, objects[0].transform.rotation);
     }
 }

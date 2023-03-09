@@ -7,23 +7,19 @@ public class TossObjects : MonoBehaviour
 {
     Rigidbody objectRigidBody;
 
+    playerLives playerLives;
     GameManager gm;
-
-
-    public int lives;
-  
-    public bool gameOver = false;
 
     void Start()
     {
         objectRigidBody = GetComponent<Rigidbody>();
 
-        objectRigidBody.AddForce(Vector3.up * Random.Range(10, 16), ForceMode.Impulse);
+        objectRigidBody.AddForce(Vector3.up * Random.Range(12, 17), ForceMode.Impulse);
         objectRigidBody.AddTorque(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10), ForceMode.Impulse);
 
         gm = GameObject.Find("GameMangaer").GetComponent<GameManager>();
+        playerLives = GameObject.Find("lives").GetComponent<playerLives>();
 
-        lives = 3;
     }
 
     // Update is called once per frame
@@ -34,10 +30,7 @@ public class TossObjects : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (lives == 0)
-        {
-            gameOver = true;
-        }
+       
     }
 
     private void OnMouseDown()
@@ -47,8 +40,8 @@ public class TossObjects : MonoBehaviour
             Destroy(gameObject);
             gm.updateScore(0);
 
-            lives--;
-            Debug.Log(lives);
+            playerLives.removeLives();
+            Debug.Log(playerLives.lives);
         }
         else if (gameObject.tag == "good")
         {

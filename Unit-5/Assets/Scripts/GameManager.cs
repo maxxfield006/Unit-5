@@ -6,21 +6,25 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI playerLivesText;
+
     int score;
 
-    TossObjects tOScript;
+    playerLives playerLives;
 
     void Start()
     {
         score = 0;
 
         gameOverText.enabled = false;
+
+        playerLives = GameObject.Find("lives").GetComponent<playerLives>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tOScript.gameOver)
+        if (playerLives.lives < 1)
         {
             gameOverText.enabled = true;
         }
@@ -31,6 +35,11 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToUpdate;
         scoreText.text = "Score: " + score;
+    }
+    public void lifeText(int lives)
+    {
+        playerLives.lives -= lives;
+        playerLivesText.text = "Lives: " + playerLives.lives;
     }
     
 }
