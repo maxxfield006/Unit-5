@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1345998877}
   gameOverText: {fileID: 1908890118}
-  playerLivesText: {fileID: 0}
+  playerLivesText: {fileID: 517147819}
 --- !u!4 &963200283
 Transform:
   m_ObjectHideFlags: 0

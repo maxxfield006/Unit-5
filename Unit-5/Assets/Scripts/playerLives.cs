@@ -19,9 +19,4 @@ public class playerLives : MonoBehaviour
         
     }
 
-    public void removeLives()
-    {
-        lives--;
-        gm.lifeText(lives);
-    }
 }

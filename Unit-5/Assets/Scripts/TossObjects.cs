@@ -40,8 +40,7 @@ public class TossObjects : MonoBehaviour
             Destroy(gameObject);
             gm.updateScore(0);
 
-            playerLives.removeLives();
-            Debug.Log(playerLives.lives);
+            gm.lifeText(1);
         }
         else if (gameObject.tag == "good")
         {
