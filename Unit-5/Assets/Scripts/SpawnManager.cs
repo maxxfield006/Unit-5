@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] objects;
     playerLives playerLives;
 
+    public bool gameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,11 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerLives.lives < 1)
+        if (playerLives.lives < 1 && !gameOver)
         {
             CancelInvoke("spawnObjects");
-            Debug.Log("STOP SPAWNING");
+
+            gameOver = true;
         }
     }
 
@@ -30,5 +33,11 @@ public class SpawnManager : MonoBehaviour
         int randomObject = Random.Range(0, 3);
         Vector3 randomRange = new Vector3(Random.Range(-5, 5), -5 , 0);
         Instantiate(objects[randomObject] ,randomRange, objects[0].transform.rotation);
+    }
+
+    void retry()
+    {
+        gameOver = false;
+
     }
 }

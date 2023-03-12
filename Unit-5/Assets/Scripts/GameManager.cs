@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI playerLivesText;
+    public TextMeshProUGUI retryButton;
 
     int score;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         score = 0;
 
         gameOverText.enabled = false;
+        retryButton.enabled = false;
 
         playerLives = GameObject.Find("lives").GetComponent<playerLives>();
     }
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         if (playerLives.lives < 1)
         {
             gameOverText.enabled = true;
+            retryButton.enabled = true; 
         }
     }
     
