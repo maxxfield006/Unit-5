@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
 
     Button retryButton;
 
+    GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +22,21 @@ public class SpawnManager : MonoBehaviour
 
         retryButton = GameObject.Find("retryButton").GetComponent<Button>();
         retryButton.gameObject.SetActive(false);
+
+        gm = GameObject.Find("GameMangaer").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject.FindGameObjectWithTag("retryButton").SetActive(false);
 
         if (playerLives.lives < 1 && !gameOver)
         {
             CancelInvoke("spawnObjects");
             gameOver = true;
             retryButton.gameObject.SetActive(true);
+            gm.gameOverText.enabled = true;
+            gm.score -= gm.score;
         }
     }
 
@@ -42,8 +47,10 @@ public class SpawnManager : MonoBehaviour
         Instantiate(objects[randomObject] ,randomRange, objects[0].transform.rotation);
     }
 
-    void retry()
+    public void retry()
     {
+        InvokeRepeating("spawnObjects", 2f, 2f);
+        gm.gameOverText.enabled = false;
         gameOver = false;
         playerLives.lives += 3;
         retryButton.gameObject.SetActive(false);

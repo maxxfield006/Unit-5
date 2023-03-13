@@ -28,8 +28,10 @@ public class TossObjects : MonoBehaviour
         if (transform.position.y < -10)
         {
             Destroy(gameObject);
+            
+            gm.lifeText(1);
         }
-
+        Debug.Log("suckmynuts");
        
     }
 
